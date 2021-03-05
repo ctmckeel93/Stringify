@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["CurrPage"] = "dash";
+}
+
+<div class="text-right">
+    <a class="btn btn-secondary" href="/logout">Logout</a>
+</div>
+@model User
+<div class="container dashboard">
+    <h2 class="text-center text-light font-class">Stringify</h2>
+    <div class="dashboard-center">
+
+        <form action="/post" method="post">
+            <div class="form-group post-container">
+                <input type="hidden" name="MessageId">
+                <textarea class="message-form" placeholder="Share your thoughts with our community..." name="Post"
+                    cols="100" rows="6"></textarea><br />
+                <input type="submit" value="Send" class=" form-button btn btn-outline-danger">
+            </div>
+        </form>
+    </div>
+
+    @foreach (var p in ViewBag.Posts)
+    {
+        <div class="text-left p-4 bg-light post-box">
+            <em>
+                <h6 class="text-danger">@p.Poster.Username posted at @p.CreatedAt</h6>
+            </em>
+            <p>@p.Post</p>
+            <button type="button" class="btn comment-button" data-toggle="modal" data-target="#comment">Comment</button>
+            @if (p.AllComments.Count != 0)
+            {
+
+                <div class="comment-box bg-light">
+
+                    @foreach (Comment c in p.AllComments)
+                    {
+                        <em class="text-success">@c.Commenter.Username commented on @c.CreatedAt</em>
+                        <p class="">@c.MyComment</p>
+                    }
+                </div>
+            }
+        </div>
+        <div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="commentLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="commentLabel">Post your comment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/new/comment/@p.MessageId" method="post">
+                            <div class="form-group text-right">
+                                <textarea class="form-control" name="MyComment" cols="30" rows="10"></textarea>
+                                <input type="submit" value="Post" class="btn btn-dark">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+</div>

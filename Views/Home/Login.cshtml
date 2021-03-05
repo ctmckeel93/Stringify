@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["CurrPage"] = "register";
+}
+
+<div class="text-center">
+
+    @model LoginUser;
+    <form asp-action="LoginProcess" asp-controller="Home" method="post" class="p-5 mt-3">
+        <div class="row d-flex justify-content-center text-left login-form border p-5">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input asp-for="Email" class="form-control" placeholder="Email">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Password" class="form-control" placeholder="Password">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group text-center">
+                    <input class="btn btn-dark" type="submit" value="Login">
+                </div>
+                <a href="/">Dont have an account?</a>
+            </div>
+    </form>
+
+</div>

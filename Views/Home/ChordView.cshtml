@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Chords";
+    ViewData["CurrPage"] = "chords";
+}
+
+<form action="/switch/@Model/@ViewBag.Instrument" method="post">
+    <select id="instrument" class="form-control" name="instrument" id="page">
+        <option value="guitar">guitar</option>
+        <option value="piano">piano</option>
+    </select><span><input class="btn btn-dark" type="submit" value="Reload page"></span>
+</form>
+
+<div class="chord-list mt-5 text-center">
+
+    <h1>The @Model chord</h1>
+
+    <ins await class=" single scales_chords_api" instrument="@ViewBag.Instrument" chord="@Model"></ins>
+
+
+    <h4>Click to hear chord played</h4><span id="atr" class="btn btn-dark text-success"><ins class="scales_chords_api"
+            chord="@Model" instrument="@ViewBag.Instrument" output="sound"></ins></span>
+
+    <h5>Each chord is different, but they all follow the same principle.</h5>
+</div>

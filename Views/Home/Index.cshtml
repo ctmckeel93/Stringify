@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    ViewData["CurrPage"] = "register";
+}
+
+<div class="text-center">
+    @model User;
+    <form asp-action="Register" asp-controller="Home" method="post" class=" p-5 mt-3">
+        <h1 class="display-4 text-secondary text-shadow">Register with our website!</h1>
+        @* <input type="hidden" asp-for="UserId"> *@
+        <div class="row d-flex flex-column align-content-center justify-content-center register-form p-5">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input asp-for="FirstName" class="form-control" placeholder="First name">
+                    <span class="text-danger" asp-validation-for="FirstName"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="LastName" class="form-control" placeholder="Last name">
+                    <span class="text-danger" asp-validation-for="LastName"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Username" class="form-control" placeholder="Username">
+                    <span class="text-danger" asp-validation-for="Username"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Email" class="form-control" placeholder="Email">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Password" class="form-control" placeholder="Password">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Confirm" class="form-control" placeholder="Confirm Password">
+                    <span class="text-danger" asp-validation-for="Confirm"></span>
+                </div>
+                <div class="form-group">
+                    <input class="form-control btn-sm  btn btn-dark" type="submit" value="Register">
+                </div>
+                <a class="text-light" href="/login">Already have an account?</a>
+            </div>
+
+        </div>
+    </form>
+
+</div>
