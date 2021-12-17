@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="nav-links-and-logo">
+                <img src="img/logo.png" alt="PS logo">
+                <li>Games</li>
+                <li>Hardware</li>
+                <li>Services</li>
+                <li>News</li>
+                <li>Shop</li>
+                <li>Support</li>
+            </ul>
+            <div class="search-and-sign-in">
+                <button onclick="alert('You are now signed in!')">Sign in</button>
+                <img src="img/search.png" alt="Search icon">
+            </div>
+        </nav>
+        <div class="main">
+            <p id="main-text" onmouseover="changeColorLime(this)" onmouseout="changeColorWhite(this)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti consequuntur repudiandae natus. Ex unde corrupti fugit similique numquam earum rerum.</p>
+            <button onclick="hideMid()">Hide Middle</button>
+            <div id="ps-bar" class="ps-bar">
+                <div class="left centered">
+                    <img src="img/games1.jpg" alt="games 1">
+                    <p class="center-text">2021: The PlayStation ultimate review</p>
+                </div>
+                <div id="mid" class="middle centered">
+                    <img src="img/games2.jpg" alt="games 2">
+                    <p class="center-text">Best single-player adventures on PS4 and PS5</p>
+                </div>
+                <div class="right centered">
+                    <img src="img/games3.jpg" alt="games 3">
+                    <p class="center-text">Final Fantasy XIV: An absolute beginners' guide</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
